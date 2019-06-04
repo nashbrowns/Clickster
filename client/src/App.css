@@ -31,3 +31,21 @@
     transform: rotate(360deg);
   }
 }
+
+.card {
+  width: 150px;
+  height: 200px;
+  background-image: url("http://clipart-library.com/images/gTe5BGRnc.png");
+  background-size: 150px 200px;
+}
+
+.card-reveal {
+  background-image: url("https://previews.123rf.com/images/rbwinston/rbwinston1203/rbwinston120300001/12586605-king-of-spades-individual-playing-card-an-isolated-vector-illustration-of-a-classic-face-card.jpg");
+  background-size: 150px 200px;
+}
+
+.transbox{
+  opacity: 0.5;
+  width: 150px;
+  height: 200px;
+}
