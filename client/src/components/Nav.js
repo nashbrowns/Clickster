@@ -2,10 +2,10 @@ import React from 'react';
 
 function Nav() {
     return (
-        <nav class="cyan lighten-4">
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo center blue-grey-text">Clickster</a>
-          <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <nav className="cyan lighten-4">
+        <div className="nav-wrapper">
+          <a href="/" className="brand-logo center blue-grey-text">Clickster</a>
+          <ul id="nav-mobile" className="left hide-on-med-and-down">
           </ul>
         </div>
       </nav>

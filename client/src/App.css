@@ -40,12 +40,11 @@
 }
 
 .card-reveal {
-  background-image: url("https://previews.123rf.com/images/rbwinston/rbwinston1203/rbwinston120300001/12586605-king-of-spades-individual-playing-card-an-isolated-vector-illustration-of-a-classic-face-card.jpg");
   background-size: 150px 200px;
 }
 
 .transbox{
-  opacity: 0.5;
+  opacity: 1;
   width: 150px;
   height: 200px;
 }

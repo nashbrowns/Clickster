@@ -1,27 +1,32 @@
 [
     {
-        "id":1,
-        "name":"Back",
-        "image": "http://clipart-library.com/images/gTe5BGRnc.png" 
+        "id": 1,
+        "value": "Jack",
+        "suit": "diamonds",
+        "url": "http://www.madore.org/~david/images/cards/english/jack-diamonds.png"
     },
     {
-        "id":2,
-        "name":"KingOfSpades",
-        "image": "https://previews.123rf.com/images/rbwinston/rbwinston1203/rbwinston120300001/12586605-king-of-spades-individual-playing-card-an-isolated-vector-illustration-of-a-classic-face-card.jpg" 
+        "id": 2,
+        "value": "ace",
+        "suit": "clubs",
+        "url": "http://clipart-library.com/images/rcjKe8noi.png"
     },
     {
-        "id":3,
-        "name":"QueenOfHearts",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Poker-sm-223-Qh.png" 
+        "id": 3,
+        "value": "queen",
+        "suit": "hearts",
+        "url": "https://slm-assets1.secondlife.com/assets/2351490/view_large/queen%20hearts.jpg?1287383099"
     },
     {
-        "id":4,
-        "name":"AceOfClubs",
-        "image": "http://clipart-library.com/images/rcjKe8noi.png" 
+        "id": 4,
+        "value": "king",
+        "suit": "spades",
+        "url": "https://thecardsoflife.com/wp-content/images/cod-ks.jpg"
     },
     {
-        "id":5,
-        "name":"JackOfDiamonds",
-        "image": "http://www.madore.org/~david/images/cards/english/jack-diamonds.png" 
+        "id": 5,
+        "value": "10",
+        "suit": "hearts",
+        "url": "https://www.yourplayingcards.com/wp-content/uploads/2013/05/styles_bridgestyle_1171479718.jpg"
     }
 ]

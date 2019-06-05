@@ -1,15 +1,25 @@
 import React from 'react';
 
-function Card() {
+function Card({url,suit,value,id}) {
+
+    const backGround = {
+        backgroundImage: "url(" + url + ")",
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center"
+    }
+
+    const classes = "card "+suit+" "+value;
+
     return (
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
+        <div className={classes} id={id} key={id} >
+            <div className="card-image waves-effect waves-block waves-light">
             </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4 transbox">{/* left blank */}</span>
+            <div className="card-content">
+                <span className="card-title activator grey-text text-darken-4 transbox" data-id={id} data-suit={suit} data-value={value}>{/* left blank */}</span>
             </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4 transbox">{/* left blank */}</span>
+            <div className="card-reveal" style={backGround}>
+                <span className="card-title grey-text text-darken-4 transbox" data-id={id} data-suit={suit} data-value={value}>{/* left blank */}</span>
             </div>
         </div>
     );
