@@ -6,10 +6,31 @@ import cards from '../Cards.json';
 
 let cardArr = [];
 
+var matches = 0;
+let attempts = 0;
+
 for(let i = 0;i<cards.length;i++){
     cardArr.push(cards[i]);
     cardArr.push(cards[i]);
 }
+
+let hideFace = {
+
+    cardElem: {
+        overflow: 'visible'
+    },
+    cardRev: {
+        display: 'none',
+        transform: 'translateY(0%)'
+    }
+};
+
+let showFace = {
+    cardElem: {},
+    cardRev: {}
+};
+
+
 
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -38,8 +59,29 @@ class CardGame extends Component {
         id: "",
         value: "",
         suit: "",
-        revealed: false
+        flipCards: []
       };
+
+    flipBack = (ID, refreshStateValues) => {
+        this.setState({
+            flipCards: [...this.state.flipCards, parseInt(ID)] 
+         }); 
+
+        setTimeout(function() {
+            refreshStateValues();
+        }, 100);
+    }
+
+    resetStateValues = () => {
+        this.setState({
+            value: "",
+             suit: "",
+               id: "",
+        flipCards: []
+           });
+    }
+
+
 
     clickCard = event => {
 
@@ -53,36 +95,78 @@ class CardGame extends Component {
         let currentValue = event.target.getAttribute('data-value');
         let currentSuit = event.target.getAttribute('data-suit');
         let currentID = event.target.getAttribute('data-id');
+    
 
-        console.log("current card: " + currentValue +" of "+currentSuit + "id = "+currentID);
-        console.log("previous card: " + prevValue +" of "+prevSuit + " id = "+prevID);
+        console.log("current card: " + currentValue + " of " + currentSuit + "id = " + currentID);
+        console.log("previous card: " + prevValue + " of " + prevSuit + " id = " + prevID);
+
+        console.log("flipCards = " + this.stateflipCards);
         
-        if(currentID === prevID){
-            console.log("Just clicked this card");
+        /* Checking if first card clicked */
+        if( (prevValue === "") && (prevSuit === "")){
+
+
+            /* If first card clicked, set value in state */
+            this.setState({
+                value: event.target.getAttribute('data-value'),
+                 suit: event.target.getAttribute('data-suit'),
+                   id: event.target.getAttribute('data-id'),
+                   flipCards: [parseInt(event.target.getAttribute('data-id'))]
+               });
+            
 
         } else{
-        this.setState({value: event.target.getAttribute('data-value'),
-                        suit: event.target.getAttribute('data-suit'),
-                          id: event.target.getAttribute('data-id')});
+
+            /* If second card clicked, check if equal to previous card */
+            if( (currentValue === prevValue) && (currentSuit === prevSuit) ){
+
+                /* If equal to previous card, increment match score and clear state */
+
+                matches++;
+
+                console.log('score = ' + matches);
+
+                this.setState({
+                    value: "",
+                     suit: "",
+                       id: "",
+                flipCards: []
+                   });
+
+            } else {
+
+                /* If not equal to previous card, increment attempts, clear state and flip both cards back over */
+
+                attempts++;
+
+                console.log('attempts = ' + attempts);
+
+                this.flipBack(currentID, this.resetStateValues);
+            
+            }
+
         }
-        
+           
     }
 
     render() {
         console.log(this.state);
+    
         return (
             <div>
                 <Nav />
                 <div className="container">
                     <div className="row">
                         {this.state.cards.map((card, i) => (
-                            <div className="col" key={i} onClick={this.clickCard}>
-                            <Card 
-                            id={i}
-                            url={card.url}
-                            suit={card.suit}
-                            value={card.value}
-                            />
+                            <div className="col" key={i}>
+                                <Card 
+                                id={i}
+                                url={card.url}
+                                suit={card.suit}
+                                value={card.value}
+                                passFunction={this.clickCard}
+                                style={ (this.state.flipCards.includes(i) && (this.state.flipCards.length === 2) ) ? showFace : hideFace}
+                                />
                             </div>
                         ))}
                     </div>
