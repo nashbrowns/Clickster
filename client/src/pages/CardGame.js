@@ -141,7 +141,10 @@ class CardGame extends Component {
 
                 console.log('attempts = ' + attempts);
 
-                this.flipBack(currentID, this.resetStateValues);
+                setTimeout(() => {
+                    this.flipBack(currentID, this.resetStateValues);
+                }, 1000);
+                
             
             }
 
