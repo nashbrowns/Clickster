@@ -1,3 +1,13 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
 .App {
   text-align: center;
 }
@@ -48,3 +58,20 @@
   width: 150px;
   height: 200px;
 }
+
+.attemptToast{
+  background-color: red;
+}
+
+.matchToast{
+  background-color: green;
+}
+
+.brand-logo{
+  margin-left: 10px;
+}
+
+li{
+  margin-left: 10px;
+}
+
