@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Card from '../components/Card';
+import Modal from '../components/Modal';
 import cards from '../Cards.json';
 import M from "materialize-css";
-
-M.AutoInit();
+import 'materialize-css/dist/css/materialize.min.css';
 
 let cardArr = [];
 
-var matches = 0;
+let matches = 0;
 let attempts = 10;
+
 
 for (let i = 0; i < cards.length; i++) {
     cardArr.push(cards[i]);
@@ -56,13 +57,19 @@ function shuffle(array) {
 
 class CardGame extends Component {
 
+    componentDidMount() {
+        // Auto initialize all the things!
+        M.AutoInit();
+    }
+
 
     state = {
         cards: shuffle(cardArr),
         id: "",
         value: "",
         suit: "",
-        flipCards: []
+        flipCards: [],
+        cardLength: cardArr.length
     };
 
     flipBack = (ID, refreshStateValues) => {
@@ -83,10 +90,17 @@ class CardGame extends Component {
             flipCards: []
         });
     }
+    
+    launchModal = () => {
+        let modal = document.getElementById('modal1');
+        let instance = M.Modal.getInstance(modal);
 
-
+        instance.open();
+    }
 
     clickCard = event => {
+
+        this.launchModal();
 
         /* getting previously clicked card values  */
         let prevValue = this.state.value;
@@ -138,6 +152,10 @@ class CardGame extends Component {
                     flipCards: []
                 });
 
+                if(matches === (this.state.cardLength)/2){
+                    console.log('You win!');
+                }
+
             } else {
 
                 /* If not equal to previous card, increment attempts, clear state and flip both cards back over */
@@ -183,6 +201,9 @@ class CardGame extends Component {
                     </div>
                 </div>
                 <Footer />
+
+                <Modal />
+
             </div>
         );
     }
