@@ -2,6 +2,27 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: #D4EDF7;
+}
+
+#modal1{
+  background-color: #D4EDF7;
+}
+
+.modal-footer{
+  background-color: #347B98 !important;
+}
+
+.modal-close{
+  color: #FB9902;
+}
+
+.nav-wrapper{
+  background-color: #347B98;
+}
+
+#brand-logo{
+  color: #FB9902;
 }
 
 main {
@@ -63,8 +84,14 @@ main {
   width: 100vh;
 }
 
+.scoreBoard{
+  margin-left: 30px;
+  font-size: 20px;
+  color: #FB9902;;
+}
+
 li{
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 #cardRow{

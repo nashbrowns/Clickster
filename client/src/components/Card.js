@@ -9,9 +9,7 @@ function Card({url,suit,value,id,style,passFunction}) {
         backgroundPosition: "center"
     }
 
-    const hoverEff = "hoverable";
-
-    const classes = "card "+suit+" "+value+" "+"hoverable";
+    const classes = "card "+suit+" "+value+" hoverable";
 
     return (
         <div className={classes} id={id} key={id} style={style.cardElem} >

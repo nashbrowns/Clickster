@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Nav from '../components/Nav';
-import Footer from '../components/Footer';
 import Card from '../components/Card';
 import Modal from '../components/Modal';
 import cards from '../Cards.json';
@@ -106,8 +105,6 @@ class CardGame extends Component {
     }
 
     clickCard = event => {
-
-        //this.launchModal();
 
         /* getting previously clicked card values  */
         let prevValue = this.state.value;
