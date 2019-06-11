@@ -149,6 +149,9 @@ class CardGame extends Component {
 
                 /* If equal to previous card, increment match score and clear state */
 
+                //re-enables clicks on document
+                document.removeEventListener("click",handler,true);
+
                 matches++;
 
                 console.log('score = ' + matches);
