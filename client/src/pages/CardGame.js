@@ -17,6 +17,11 @@ for (let i = 0; i < cards.length; i++) {
     cardArr.push(cards[i]);
 }
 
+function handler(e){
+    e.stopPropagation();
+    e.preventDefault();
+}
+
 let hideFace = {
 
     cardElem: {
@@ -88,6 +93,9 @@ class CardGame extends Component {
             id: "",
             flipCards: []
         });
+
+        //re-enables clicks on document
+        document.removeEventListener("click",handler,true);
     }
 
     launchModal = () => {
@@ -132,6 +140,9 @@ class CardGame extends Component {
 
 
         } else {
+
+            //temporarily removes all clicks on document 
+            document.addEventListener("click",handler,true);
 
             /* If second card clicked, check if equal to previous card */
             if ((currentValue === prevValue) && (currentSuit === prevSuit)) {
