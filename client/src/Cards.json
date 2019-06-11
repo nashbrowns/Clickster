@@ -28,5 +28,29 @@
         "value": "10",
         "suit": "hearts",
         "url": "https://www.yourplayingcards.com/wp-content/uploads/2013/05/styles_bridgestyle_1171479718.jpg"
+    },
+    {
+        "id": 6,
+        "value": "6",
+        "suit": "diamonds",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Playing_card_diamond_6.svg"
+    },
+    {
+        "id": 7,
+        "value": "3",
+        "suit": "clubs",
+        "url": "https://cdn2.bigcommerce.com/n-d57o0b/1kujmu/products/297/images/925/3C__99122.1440113509.1280.1280.png?c=2"
+    },
+    {
+        "id": 8,
+        "value": "4",
+        "suit": "hearts",
+        "url": "https://cdn2.bigcommerce.com/n-d57o0b/1kujmu/products/297/images/926/4H__83243.1440113515.1280.1280.png?c=2"
+    },
+    {
+        "id": 9,
+        "value": "5",
+        "suit": "spades",
+        "url": "https://cdn2.bigcommerce.com/n-d57o0b/1kujmu/products/297/images/927/5S__90574.1440113521.1280.1280.png?c=2"
     }
 ]

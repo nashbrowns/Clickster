@@ -1,43 +1,32 @@
-import React, { Component } from "react";
-import 'materialize-css/dist/css/materialize.min.css';
-import M from "materialize-css";
+import React from "react";
 
-
-
-
-
-
-class Modal extends Component {
-
-    componentDidMount() {
-
-        var modals = document.querySelectorAll('.modal')
-
-        for (var i = 0; i < modals.length; i++){
-            M.Modal.init(modals[i]);
-        }
-
-    }
-
-    render() {
+function Modal({matches})  {
 
         return(
         <div>
-            {/* <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> */}
-
-
             <div id="modal1" className="modal">
                 <div className="modal-content">
-                    <h4>Modal Header</h4>
-                    <p>A bunch of text</p>
+                    <h3>
+                        {(matches === 0) ? "Womp womp womp...": null}
+                        {(matches === 1) ? "Not the worst?": null}
+                        {(matches === 2) ? "Yeah, keep praciticing": null}
+                        {(matches === 3) ? "I had so much hope for you...": null}
+                        {(matches === 4) ? "Not bad! Not good either though...": null}
+                        {(matches === 5) ? "A step in the right direction.": null}
+                        {(matches === 6) ? "Getting there!": null}
+                        {(matches === 7) ? "Pretty amazing tbh": null}
+                        {(matches === 8) ? "Nice Job!": null}
+                        {(matches === 9) ? "Matched all cards! Congrats!": null}
+
+                    </h3>
+                    <h4>You got {matches} {(matches === 1) ? "match":"matches"}</h4>
                 </div>
                 <div className="modal-footer">
-                    <a href="/" className="modal-close waves-effect waves-green btn-flat">Agree</a>
+                    <a href="/" className="modal-close waves-effect waves-green btn-flat">Next Game</a>
                 </div>
             </div>
         </div>
         );
-    }
 
 }
 

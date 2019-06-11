@@ -33,24 +33,15 @@ main {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .card {
   width: 150px;
   height: 200px;
   background-image: url("http://clipart-library.com/images/gTe5BGRnc.png");
-  background-size: 150px 200px;
+  background-size: cover;
 }
 
 .card-reveal {
-  background-size: 150px 200px;
+  background-size: cover;
 }
 
 .transbox{
@@ -67,11 +58,35 @@ main {
   background-color: green;
 }
 
-.brand-logo{
-  margin-left: 10px;
+.container{
+  align-content: center;
+  width: 100vh;
 }
 
 li{
   margin-left: 10px;
 }
 
+#cardRow{
+  width: 1200px;
+  align-content: center;
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+    .card{
+      width: 55px;
+      height: 85px;
+    }
+  
+    .transbox{
+      opacity: 1;
+      width: 55px;
+      height: 85px;
+    }
+
+}

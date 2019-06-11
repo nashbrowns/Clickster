@@ -12,7 +12,6 @@ let cardArr = [];
 let matches = 0;
 let attempts = 10;
 
-
 for (let i = 0; i < cards.length; i++) {
     cardArr.push(cards[i]);
     cardArr.push(cards[i]);
@@ -90,7 +89,7 @@ class CardGame extends Component {
             flipCards: []
         });
     }
-    
+
     launchModal = () => {
         let modal = document.getElementById('modal1');
         let instance = M.Modal.getInstance(modal);
@@ -100,7 +99,7 @@ class CardGame extends Component {
 
     clickCard = event => {
 
-        this.launchModal();
+        //this.launchModal();
 
         /* getting previously clicked card values  */
         let prevValue = this.state.value;
@@ -143,7 +142,7 @@ class CardGame extends Component {
 
                 console.log('score = ' + matches);
 
-                M.toast({html: '<i class="material-icons">exposure_plus_1</i>',displayLength: 1000, classes: 'matchToast'});
+                M.toast({ html: '<i class="material-icons">exposure_plus_1</i>', displayLength: 1000, classes: 'matchToast' });
 
                 this.setState({
                     value: "",
@@ -152,8 +151,9 @@ class CardGame extends Component {
                     flipCards: []
                 });
 
-                if(matches === (this.state.cardLength)/2){
+                if (matches === (this.state.cardLength) / 2) {
                     console.log('You win!');
+                    this.launchModal();
                 }
 
             } else {
@@ -164,12 +164,16 @@ class CardGame extends Component {
 
                 console.log('attempts = ' + attempts);
 
-                M.toast({html: '<i class="material-icons">exposure_neg_1</i>',displayLength: 1000, classes: 'attemptToast'});
+                M.toast({ html: '<i class="material-icons">exposure_neg_1</i>', displayLength: 1000, classes: 'attemptToast' });
 
 
                 setTimeout(() => {
                     this.flipBack(currentID, this.resetStateValues);
                 }, 1000);
+
+                if (attempts === 0) {
+                    this.launchModal();
+                }
 
 
             }
@@ -184,10 +188,11 @@ class CardGame extends Component {
         return (
             <div>
                 <Nav matches={matches} attempts={attempts} />
-                <div className="container">
-                    <div className="row">
+                    <br></br>
+                    <br></br>
+                    <div className="row" id="cardRow">
                         {this.state.cards.map((card, i) => (
-                            <div className="col" key={i}>
+                            <div className="col s2" key={i}>
                                 <Card
                                     id={i}
                                     url={card.url}
@@ -199,11 +204,7 @@ class CardGame extends Component {
                             </div>
                         ))}
                     </div>
-                </div>
-                <Footer />
-
-                <Modal />
-
+                <Modal matches={matches} />
             </div>
         );
     }
